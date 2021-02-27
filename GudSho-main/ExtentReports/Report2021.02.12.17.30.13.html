@@ -1,0 +1,2457 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/bee7a4abdc590e21eec8618a90c81ff4d16e500a/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>GudSho -QA-Cucumber Framework</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+    
+	</style>
+</head>
+
+	<body class='extent dar default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>GudSho - QA</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 12, 2021 05:30:13 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.1.1</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@share</a></li>
+					<li><a href='#'>@End2End</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='90.196%'><span class='strong'>46</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='9.804%'>5</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='97.191%'><span class='strong'>173</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='2.809%'>5</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Functonality of Sho or series detail page</span>
+						<span class='test-time'>Feb 12, 2021 05:30:13 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 15s+947ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the sho or series redirect to correct page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the sho or series redirect to correct page</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And check Talent and watch list button is dsiplaying</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Scrolldown and check the watchlist is showing Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='8' status='pass'>
+	<span class='duration right label'>0h 0m 13s+392ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the studio name is displayed and studio link is clickable</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='9' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the studio name is displayed and studio link is clickable</span>
+			
+				<ul class='steps'>
+					<li test-id='10' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check studioname is displayed and studioname should matches with Sameer's</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on Sameer's and check the redirection of the page</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='14' status='pass'>
+	<span class='duration right label'>0h 0m 12s+521ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check that sho or series and details of the sho or series</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='15' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check that sho or series and details of the sho or series</span>
+			
+				<ul class='steps'>
+					<li test-id='16' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The sho type is Series</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The season counts should be 7 Seasons</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The maturity rating is All</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The default genere is Action</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='22' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The languages showing ENGLISH</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The screensdate should be Nov 2020</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='24' status='pass'>
+	<span class='duration right label'>0h 0m 12s+90ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Sho or series description is displaying</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='25' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Sho or series description is displaying</span>
+			
+				<ul class='steps'>
+					<li test-id='26' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check sho or series description is displaying</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And The main heading of sho or series detail is showing</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='30' status='pass'>
+	<span class='duration right label'>0h 0m 20s+17ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the readmore link is visible or not and check the redirection of readmore link</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='31' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the readmore link is visible or not and check the redirection of readmore link</span>
+			
+				<ul class='steps'>
+					<li test-id='32' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='33' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check the readmore link is showing and click on it</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='35' status='pass'>
+	<span class='duration right label'>0h 0m 15s+68ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Click on watchList button to add into watch list check the toast message</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='36' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Click on watchList button to add into watch list check the toast message</span>
+			
+				<ul class='steps'>
+					<li test-id='37' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on watchlist button from sho detail page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Singh Is King has been added to watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='41' status='pass'>
+	<span class='duration right label'>0h 0m 15s+10ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Click on watchList button to remove from watchlist check the toast message</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='42' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Click on watchList button to remove from watchlist check the toast message</span>
+			
+				<ul class='steps'>
+					<li test-id='43' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on watchlist button from sho detail page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='46' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Singh Is King has been removed from watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='47' status='pass'>
+	<span class='duration right label'>0h 0m 15s+642ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Click on watchList button to add into watch list after scroll down</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='48' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Click on watchList button to add into watch list after scroll down</span>
+			
+				<ul class='steps'>
+					<li test-id='49' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Minister and select wanted Minister</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ministeris showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then scroll down the page and click on watchlist button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Minister has been added to watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='53' status='pass'>
+	<span class='duration right label'>0h 0m 15s+347ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Click on watchList button to remove from watchlist after scroll down</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='54' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Click on watchList button to remove from watchlist after scroll down</span>
+			
+				<ul class='steps'>
+					<li test-id='55' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Minister and select wanted Minister</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='56' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ministeris showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='57' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then scroll down the page and click on watchlist button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='58' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Minister has been removed from watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='59' status='pass'>
+	<span class='duration right label'>0h 0m 49s+139ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Sho or series share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='60' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@share</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Sho or series share</span>
+			
+				<ul class='steps'>
+					<li test-id='61' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='62' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='63' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Check share button is visible and share with facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check share button is visble and share with twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check share button is visble and share with watsapp share</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check copylink button is visble and share with copylink share</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='67' status='pass'>
+	<span class='duration right label'>0h 0m 48s+23ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Sho or series share after scroll down</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='68' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@share</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Sho or series share after scroll down</span>
+			
+				<ul class='steps'>
+					<li test-id='69' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Scrolldown the page for header share button</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='72' status='pass'>
+	<span class='duration right label'>0h 0m 55s+517ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Promo Share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='73' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@share</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Promo Share</span>
+			
+				<ul class='steps'>
+					<li test-id='74' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='75' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share Promo-2 via facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share Promo-2 via twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share Promo-2 via whatsapp</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share Promo-2 via copy link</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='80' status='pass'>
+	<span class='duration right label'>0h 0m 32s+222ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Feelers headings and feelers percentage</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='81' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Feelers headings and feelers percentage</span>
+			
+				<ul class='steps'>
+					<li test-id='82' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Minister and select wanted Minister</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ministeris showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='84' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Feelers is visible and check all the feelers titles</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='85' status='pass'>
+	<span class='duration right label'>0h 0m 33s+105ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the promos are avilable in shodetail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='86' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the promos are avilable in shodetail page</span>
+			
+				<ul class='steps'>
+					<li test-id='87' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check whether the sho or series have promos and extras section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='90' status='pass'>
+	<span class='duration right label'>0h 0m 34s+151ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play promo from sho detail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='91' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play promo from sho detail page</span>
+			
+				<ul class='steps'>
+					<li test-id='92' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='93' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='94' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play the Waterscape_2.mp4 from sho detail page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='95' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And check same Waterscape_2.mp4 is displayed on player</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='96' status='pass'>
+	<span class='duration right label'>0h 0m 43s+15ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">To check View count and Gud Count on sho detail page after like</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='97' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@End2End</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">To check View count and Gud Count on sho detail page after like</span>
+			
+				<ul class='steps'>
+					<li test-id='98' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play Waterscape_2.mp4 from sho detail page and check the view and gud count incremented by one</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='101' status='pass'>
+	<span class='duration right label'>0h 0m 41s+859ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">To check View count and Gud Count on sho detail page after unlike</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='102' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">To check View count and Gud Count on sho detail page after unlike</span>
+			
+				<ul class='steps'>
+					<li test-id='103' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='104' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='105' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play Waterscape_2.mp4 from sho detail page and check the view and gud count decremented by one</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='106' status='pass'>
+	<span class='duration right label'>0h 0m 52s+390ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Musical tracks is available in sho or detail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='107' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Musical tracks is available in sho or detail page</span>
+			
+				<ul class='steps'>
+					<li test-id='108' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='110' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check musical tracks title is displaying</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='111' status='pass'>
+	<span class='duration right label'>0h 0m 52s+184ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Musical tracks are availble and Play all button is avilable or not</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='112' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Musical tracks are availble and Play all button is avilable or not</span>
+			
+				<ul class='steps'>
+					<li test-id='113' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='114' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='115' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check sameer and total 2 Tracks and 5.67m and play all button is displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='116' status='pass'>
+	<span class='duration right label'>0h 0m 32s+782ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the header titles of Audio section</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='117' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the header titles of Audio section</span>
+			
+				<ul class='steps'>
+					<li test-id='118' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='119' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='120' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check all the titles are displaying</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='121' status='pass'>
+	<span class='duration right label'>0h 0m 32s+278ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Musical tracks are availble and Play all button is avilable or not</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='122' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Musical tracks are availble and Play all button is avilable or not</span>
+			
+				<ul class='steps'>
+					<li test-id='123' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='124' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='125' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Playall button and check the audio player is opened and playing first song</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='126' status='pass'>
+	<span class='duration right label'>0h 0m 33s+541ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play the Wanted audio name from the Musical tracks and Verify its playing correct Audio</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='127' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play the Wanted audio name from the Musical tracks and Verify its playing correct Audio</span>
+			
+				<ul class='steps'>
+					<li test-id='128' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='129' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='130' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play [Isongs.info] 02 - Endhukho Emo.mp3 from the player section</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='131' status='pass'>
+	<span class='duration right label'>0h 0m 32s+826ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">To check the Audios is switching by clicking next and previos button</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='132' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">To check the Audios is switching by clicking next and previos button</span>
+			
+				<ul class='steps'>
+					<li test-id='133' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='134' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='135' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Playall button and check the audio player is opened and playing first song</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='136' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on next song and verify its switched right song</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='137' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on previous song and verify its switched previous song</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='138' status='pass'>
+	<span class='duration right label'>0h 0m 32s+394ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Synposis heading and details are visible and print it</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='139' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@share</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Synposis heading and details are visible and print it</span>
+			
+				<ul class='steps'>
+					<li test-id='140' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='141' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='142' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check all lined details headings are showing and correct</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='143' status='pass'>
+	<span class='duration right label'>0h 0m 32s+545ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Synposis heading and details are visible and print it</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='144' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Synposis heading and details are visible and print it</span>
+			
+				<ul class='steps'>
+					<li test-id='145' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='146' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='147' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The Specifics heading and the Specifics details</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='148' status='pass'>
+	<span class='duration right label'>0h 0m 32s+597ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Castdetails heading and details are visible and print it</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='149' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Castdetails heading and details are visible and print it</span>
+			
+				<ul class='steps'>
+					<li test-id='150' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter New and select wanted New Sho</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='151' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and New Shois showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='152' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The cast details heading and the cast details</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='153' status='pass'>
+	<span class='duration right label'>0h 0m 32s+961ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the Crew details heading and details are visible and print it</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='154' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the Crew details heading and details are visible and print it</span>
+			
+				<ul class='steps'>
+					<li test-id='155' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='156' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='157' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The crew details heading and the crew details</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='158' status='pass'>
+	<span class='duration right label'>0h 0m 42s+663ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the episode link is working and same verify all the seasons and episodes are showing</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='159' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the episode link is working and same verify all the seasons and episodes are showing</span>
+			
+				<ul class='steps'>
+					<li test-id='160' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='161' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='162' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Season dropdown is displaying and corresponsing episodes</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='163' status='fail'>
+	<span class='duration right label'>0h 0m 34s+932ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the same episodes are displaying in shodetailpage and episode page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='164' class='node scenario fail' status='fail'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the same episodes are displaying in shodetailpage and episode page</span>
+			
+				<ul class='steps'>
+					<li test-id='165' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='166' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='167' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then verify same episodes names is displaying in episode page and shodetail page with Season 4</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Check the same episodes are displaying in shodetailpage and episode page.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (353, 1035)
+  (Session info: chrome=88.0.4324.150)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49351}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 912cfa26e98e4b5c03dd75aec498a668
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at Steps.frontend.Shoorseriesdetailpagesteps.verify_same_episodes_names_is_displaying_in_episode_page_and_shodetail_page_with(Shoorseriesdetailpagesteps.java:581)
+	at ✽.Then verify same episodes names is displaying in episode page and shodetail page with Season 4(Features/Frontend/B Shodetailpage.feature:313)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='168' status='pass'>
+	<span class='duration right label'>0h 0m 40s+487ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the maturity rating,description and timing is diplaying in episode page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='169' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the maturity rating,description and timing is diplaying in episode page</span>
+			
+				<ul class='steps'>
+					<li test-id='170' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='171' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='172' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then should display description and time and All</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='173' status='pass'>
+	<span class='duration right label'>0h 0m 33s+361ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the back button and series name in episode detail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='174' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the back button and series name in episode detail page</span>
+			
+				<ul class='steps'>
+					<li test-id='175' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='176' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='177' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check the back button and series link is working as expected in episode detail page</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='178' status='pass'>
+	<span class='duration right label'>0h 0m 36s+849ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the episode is playng without buy from the shodetail page episodes section</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='179' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the episode is playng without buy from the shodetail page episodes section</span>
+			
+				<ul class='steps'>
+					<li test-id='180' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Minister and select wanted Minister</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='181' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ministeris showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='182' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then play any episode from Season 1</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='183' status='pass'>
+	<span class='duration right label'>0h 0m 32s+354ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the episode is playng without buy from the episode page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='184' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the episode is playng without buy from the episode page</span>
+			
+				<ul class='steps'>
+					<li test-id='185' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Minister and select wanted Minister</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='186' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ministeris showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='187' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then From episode page play any episode from Season 1</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='188' status='pass'>
+	<span class='duration right label'>0h 0m 24s+792ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='189' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page</span>
+			
+				<ul class='steps'>
+					<li test-id='190' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='191' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='192' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Buy or play the sho or series with Debit or Credit Card and check the Talent is playing</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='193' status='fail'>
+	<span class='duration right label'>0h 0m 11s+439ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page-watch free</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='194' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@End2End</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page-watch free</span>
+			
+				<ul class='steps'>
+					<li test-id='195' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Mayakkam and select wanted Mayakkam Enna - (Tamil)</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='196' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Mayakkam Enna - (Tamil)is showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='197' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Watch free sho or series from sho detail page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Play Sho or series from shodetail page-watch free.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: expected:<[Not Availabl]e> but was:<[Watch Fre]e>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at Steps.frontend.Shoorseriesdetailpagesteps.watch_free_sho_or_series_from_sho_detail_page(Shoorseriesdetailpagesteps.java:1208)
+	at ✽.Then Watch free sho or series from sho detail page(Features/Frontend/B Shodetailpage.feature:378)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='198' status='pass'>
+	<span class='duration right label'>0h 0m 12s+29ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page-coming soon</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='199' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page-coming soon</span>
+			
+				<ul class='steps'>
+					<li test-id='200' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Mundasupatti and select wanted Mundasupatti</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='201' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Mundasupattiis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='202' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then verify coming soon text</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='203' status='pass'>
+	<span class='duration right label'>0h 0m 56s+115ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page after scroll down</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='204' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page after scroll down</span>
+			
+				<ul class='steps'>
+					<li test-id='205' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='206' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='207' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Scroll down the page and play or buy Talent  with Debit or Credit Card</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='208' status='fail'>
+	<span class='duration right label'>0h 0m 14s+20ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page after scroll down-watch free</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='209' class='node scenario fail' status='fail'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page after scroll down-watch free</span>
+			
+				<ul class='steps'>
+					<li test-id='210' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Mayakkam and select wanted Mayakkam Enna - (Tamil)</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='211' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Mayakkam Enna - (Tamil)is showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='212' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Scroll down and watch free the sho or series</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Play Sho or series from shodetail page after scroll down-watch free.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: expected:<[Not Availabl]e> but was:<[Watch Fre]e>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at Steps.frontend.Shoorseriesdetailpagesteps.scroll_down_and_watch_free_the_sho_or_series(Shoorseriesdetailpagesteps.java:1221)
+	at ✽.Then Scroll down and watch free the sho or series(Features/Frontend/B Shodetailpage.feature:409)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='213' status='pass'>
+	<span class='duration right label'>0h 0m 14s+263ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play Sho or series from shodetail page after scroll down-coming soon</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='214' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play Sho or series from shodetail page after scroll down-coming soon</span>
+			
+				<ul class='steps'>
+					<li test-id='215' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Mundasupatti and select wanted Mundasupatti</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='216' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Mundasupattiis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='217' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Scroll down and coming soon the sho or series</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='218' status='fail'>
+	<span class='duration right label'>0h 1m 20s+88ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title detailsfor series</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='219' class='node scenario fail' status='fail'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title detailsfor series</span>
+			
+				<ul class='steps'>
+					<li test-id='220' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Web and select wanted Web Series</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='221' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Web Seriesis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='222' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Play promo and while switching promo check the details of mini title</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Check the mini title detailsfor series.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='plyr__poster']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49857}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: aba12bcf468de471002df729acb89656
+*** Element info: {Using=xpath, value=//div[@class='plyr__poster']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.videoandaudioPlayer.mousehoveronplayerm(videoandaudioPlayer.java:131)
+	at Steps.frontend.Shoorseriesdetailpagesteps.play_promo_and_while_switching_promo_check_the_details_of_mini_title(Shoorseriesdetailpagesteps.java:934)
+	at ✽.Then Play promo and while switching promo check the details of mini title(Features/Frontend/B Shodetailpage.feature:429)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='223' status='pass'>
+	<span class='duration right label'>0h 1m 12s+89ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title details for series-last promo</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='224' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title details for series-last promo</span>
+			
+				<ul class='steps'>
+					<li test-id='225' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='226' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='227' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play promo and while switching promo check the details of mini title after all promos play</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='228' status='fail'>
+	<span class='duration right label'>0h 1m 43s+11ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title cancel for series</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='229' class='node scenario fail' status='fail'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title cancel for series</span>
+			
+				<ul class='steps'>
+					<li test-id='230' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Trolls and select wanted Trolls</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='231' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Trollsis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='232' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Check the cancel button in minititle</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Check the mini title cancel for series.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='plyr__poster']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50208}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e830ffb95aef70ed1a6a2e1eefdded1f
+*** Element info: {Using=xpath, value=//div[@class='plyr__poster']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.videoandaudioPlayer.mousehoveronplayerm(videoandaudioPlayer.java:131)
+	at Steps.frontend.Shoorseriesdetailpagesteps.check_the_cancel_button_in_minititle(Shoorseriesdetailpagesteps.java:1330)
+	at ✽.Then Check the cancel button in minititle(Features/Frontend/B Shodetailpage.feature:449)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='233' status='pass'>
+	<span class='duration right label'>0h 1m 3s+645ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title details for sho</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='234' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title details for sho</span>
+			
+				<ul class='steps'>
+					<li test-id='235' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Singh and select wanted Singh Is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='236' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Singh Is Kingis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='237' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Buy the sho or series from minititle and verify the details</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='238' status='pass'>
+	<span class='duration right label'>0h 0m 26s+743ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title details for sho-watch free</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='239' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title details for sho-watch free</span>
+			
+				<ul class='steps'>
+					<li test-id='240' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Ranam and select wanted Ranam</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='241' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Ranamis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='242' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then watch free sho or series</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='243' status='pass'>
+	<span class='duration right label'>0h 0m 17s+104ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the watch free content is playing from  episode section</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='244' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the watch free content is playing from  episode section</span>
+			
+				<ul class='steps'>
+					<li test-id='245' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Carmen and select wanted Carmen Sandiago</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='246' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Carmen Sandiagois showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='247' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play the any episode from shodetail page for watch free content</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='248' status='pass'>
+	<span class='duration right label'>0h 0m 17s+724ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the watch free content is playing from episode page section</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='249' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the watch free content is playing from episode page section</span>
+			
+				<ul class='steps'>
+					<li test-id='250' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Carmen and select wanted Carmen Sandiago</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='251' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Carmen Sandiagois showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='252' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play the any episode from episode page for watch free content</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='253' status='pass'>
+	<span class='duration right label'>0h 0m 30s+685ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the mini title details for sho-comingsoon</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='254' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the mini title details for sho-comingsoon</span>
+			
+				<ul class='steps'>
+					<li test-id='255' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Mundasupatti and select wanted Mundasupatti</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='256' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Mundasupattiis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='257' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The text should show coming soon</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='258' status='pass'>
+	<span class='duration right label'>0h 0m 52s+188ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the episode is playing after bought from the shodetail page episodes section</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='259' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the episode is playing after bought from the shodetail page episodes section</span>
+			
+				<ul class='steps'>
+					<li test-id='260' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='261' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='262' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play episode from Season 1 in episode detailpage which already bought</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='263' status='pass'>
+	<span class='duration right label'>0h 0m 38s+480ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Check the episode is playing after bought from the Episode detail page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='264' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Check the episode is playing after bought from the Episode detail page</span>
+			
+				<ul class='steps'>
+					<li test-id='265' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='266' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='267' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Play episode from Season 1 in episode detailpage which already bought</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='268' status='pass'>
+	<span class='duration right label'>0h 0m 35s+3ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Add feleres concept</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='269' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Add feleres concept</span>
+			
+				<ul class='steps'>
+					<li test-id='270' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Talent and select wanted Talent</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='271' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Talentis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='272' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The feelers should be update when i am giving the Comedy</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='273' status='pass'>
+	<span class='duration right label'>0h 0m 36s+578ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Audio Share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='274' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Audio Share</span>
+			
+				<ul class='steps'>
+					<li test-id='275' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter Wedding and select wanted Wedding Life</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='276' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Check the page title and Wedding Lifeis showing on page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='277' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Playall button and check the audio player is opened and playing first song</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='278' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Share audio with facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='279' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Share audio with twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='280' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Share audio with watsapp</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='281' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Share audio with copylink</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@share</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 12, 2021 05:32:29 PM</td>
+										<td class='linked' test-id='60'>Functonality of Sho or series detail page.Sho or series share.Sho or series share</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Feb 12, 2021 05:33:18 PM</td>
+										<td class='linked' test-id='68'>Functonality of Sho or series detail page.Sho or series share after scroll down.Sho or series share after scroll down</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Feb 12, 2021 05:34:07 PM</td>
+										<td class='linked' test-id='73'>Functonality of Sho or series detail page.Promo Share.Promo Share</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Feb 12, 2021 05:42:04 PM</td>
+										<td class='linked' test-id='139'>Functonality of Sho or series detail page.Check the Synposis heading and details are visible and print it.Check the Synposis heading and details are visible and print it</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@End2End</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 12, 2021 05:36:42 PM</td>
+										<td class='linked' test-id='97'>Functonality of Sho or series detail page.To check View count and Gud Count on sho detail page after like.To check View count and Gud Count on sho detail page after like</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Feb 12, 2021 05:48:22 PM</td>
+										<td class='linked' test-id='194'>Functonality of Sho or series detail page.Play Sho or series from shodetail page-watch free.Play Sho or series from shodetail page-watch free</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.ElementClickInterceptedException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 05:45:31 PM</td>
+                                                        <td class='linked' test-id='167'>Functonality of Sho or series detail page.Check the same episodes are displaying in shodetailpage and episode page.Check the same episodes are displaying in shodetailpage and episode page.Then verify same episodes names is displaying in episode page and shodetail page with Season 4</td>
+                                                        <td><pre><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (353, 1035)
+  (Session info: chrome=88.0.4324.150)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49351}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 912cfa26e98e4b5c03dd75aec498a668
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at Steps.frontend.Shoorseriesdetailpagesteps.verify_same_episodes_names_is_displaying_in_episode_page_and_shodetail_page_with(Shoorseriesdetailpagesteps.java:581)
+	at ✽.Then verify same episodes names is displaying in episode page and shodetail page with Season 4(Features/Frontend/B Shodetailpage.feature:313)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.junit.ComparisonFailure</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 05:48:33 PM</td>
+                                                        <td class='linked' test-id='197'>Functonality of Sho or series detail page.Play Sho or series from shodetail page-watch free.Play Sho or series from shodetail page-watch free.Then Watch free sho or series from sho detail page</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: expected:<[Not Availabl]e> but was:<[Watch Fre]e>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at Steps.frontend.Shoorseriesdetailpagesteps.watch_free_sho_or_series_from_sho_detail_page(Shoorseriesdetailpagesteps.java:1208)
+	at ✽.Then Watch free sho or series from sho detail page(Features/Frontend/B Shodetailpage.feature:378)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 05:49:54 PM</td>
+                                                        <td class='linked' test-id='212'>Functonality of Sho or series detail page.Play Sho or series from shodetail page after scroll down-watch free.Play Sho or series from shodetail page after scroll down-watch free.Then Scroll down and watch free the sho or series</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: expected:<[Not Availabl]e> but was:<[Watch Fre]e>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at Steps.frontend.Shoorseriesdetailpagesteps.scroll_down_and_watch_free_the_sho_or_series(Shoorseriesdetailpagesteps.java:1221)
+	at ✽.Then Scroll down and watch free the sho or series(Features/Frontend/B Shodetailpage.feature:409)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 05:50:30 PM</td>
+                                                        <td class='linked' test-id='222'>Functonality of Sho or series detail page.Check the mini title detailsfor series.Check the mini title detailsfor series.Then Play promo and while switching promo check the details of mini title</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='plyr__poster']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:49857}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: aba12bcf468de471002df729acb89656
+*** Element info: {Using=xpath, value=//div[@class='plyr__poster']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.videoandaudioPlayer.mousehoveronplayerm(videoandaudioPlayer.java:131)
+	at Steps.frontend.Shoorseriesdetailpagesteps.play_promo_and_while_switching_promo_check_the_details_of_mini_title(Shoorseriesdetailpagesteps.java:934)
+	at ✽.Then Play promo and while switching promo check the details of mini title(Features/Frontend/B Shodetailpage.feature:429)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 05:52:57 PM</td>
+                                                        <td class='linked' test-id='232'>Functonality of Sho or series detail page.Check the mini title cancel for series.Check the mini title cancel for series.Then Check the cancel button in minititle</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='plyr__poster']"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:50208}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e830ffb95aef70ed1a6a2e1eefdded1f
+*** Element info: {Using=xpath, value=//div[@class='plyr__poster']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.videoandaudioPlayer.mousehoveronplayerm(videoandaudioPlayer.java:131)
+	at Steps.frontend.Shoorseriesdetailpagesteps.check_the_cancel_button_in_minititle(Shoorseriesdetailpagesteps.java:1330)
+	at ✽.Then Check the cancel button in minititle(Features/Frontend/B Shodetailpage.feature:449)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>51</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>178</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 12, 2021 05:30:13 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 12, 2021 05:59:47 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>1,774,265ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>Sameer</td>
+							</tr>
+							<tr>
+								<td>Application Name</td>
+								<td>GudSho </td>
+							</tr>
+							<tr>
+								<td>GudSho</td>
+								<td>QA</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@share</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@End2End</td>
+							<td>1</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				Test Execution Cucumber Report
+		</div>
+	</div>
+</div>
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 46,
+				failChild: 5,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 5,
+				
+				passGrandChild: 173,
+				failGrandChild: 5,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 5,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+        
+        });
+      
+    
+ 		</script>
+	</body>
+	
+</html>

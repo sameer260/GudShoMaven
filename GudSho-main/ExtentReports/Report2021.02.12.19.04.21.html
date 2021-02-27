@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/bee7a4abdc590e21eec8618a90c81ff4d16e500a/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>GudSho -QA-Cucumber Framework</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+    
+	</style>
+</head>
+
+	<body class='extent dar default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>GudSho - QA</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 12, 2021 07:04:21 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.1.1</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@tt</a></li>
+					<li><a href='#'>@sam1</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='89.474%'><span class='strong'>17</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='10.526%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='92.135%'><span class='strong'>82</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='2.247%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='5.618%'>5</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Functionality to Studio profile frontend</span>
+						<span class='test-time'>Feb 12, 2021 07:04:22 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 20s+221ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">To check the Studio info including the followers count,sho and series count</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">To check the Studio info including the followers count,sho and series count</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify all the studiodetails are showing in the page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Click on the studio info</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then See studioinfo and click back</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='9' status='pass'>
+	<span class='duration right label'>0h 0m 32s+292ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Adding a sho or series to watch list from studio profile page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='10' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Adding a sho or series to watch list from studio profile page</span>
+			
+				<ul class='steps'>
+					<li test-id='11' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Mousehover on given RRR-2 and add to watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Rrr-2 has been added to watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='15' status='pass'>
+	<span class='duration right label'>0h 0m 29s+819ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Removed a sho or series from watch list from studio profile page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='16' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Removed a sho or series from watch list from studio profile page</span>
+			
+				<ul class='steps'>
+					<li test-id='17' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Mousehover on given RRR-2 and add to watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify the Rrr-2 has been removed from watchlist</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='21' status='pass'>
+	<span class='duration right label'>0h 0m 34s+77ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">To check all sho and series and audio tracks in All genere</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='22' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">To check all sho and series and audio tracks in All genere</span>
+			
+				<ul class='steps'>
+					<li test-id='23' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Check all the sho and shoseries and promos and audiotracks</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='26' status='pass'>
+	<span class='duration right label'>0h 0m 24s+619ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify Rowtitile names</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='27' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify Rowtitile names</span>
+			
+				<ul class='steps'>
+					<li test-id='28' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then verify Trending Shos on the page with Trending Shos</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='31' status='pass'>
+	<span class='duration right label'>0h 1m 42s+772ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verification of all shoorseries names in all generes</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='32' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verification of all shoorseries names in all generes</span>
+			
+				<ul class='steps'>
+					<li test-id='33' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on each genere and capture the all shoandseries in the genere</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='36' status='pass'>
+	<span class='duration right label'>0h 0m 58s+915ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verification of shoorseries name in <generename></span>
+	</div>
+	<ul class='steps'>
+		<li test-id='37' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verification of shoorseries name in Social</span>
+			
+				<ul class='steps'>
+					<li test-id='38' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given click on Social and capture shoorseries name</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Verify the click opertion is happening on right Social</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='42' status='pass'>
+	<span class='duration right label'>0h 1m 50s+364ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verification of <shoorseries> name in <generename></span>
+	</div>
+	<ul class='steps'>
+		<li test-id='43' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verification of Singh is King name in Action</span>
+			
+				<ul class='steps'>
+					<li test-id='44' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='46' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on Action and capture shoorseries name</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='47' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify Singh is King is present in the particular genere</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='48' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on Singh is King on other Action and verify the shotitle</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='49' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verification of Talent name in Historical</span>
+			
+				<ul class='steps'>
+					<li test-id='50' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on Historical and capture shoorseries name</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='53' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify Talent is present in the particular genere</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='54' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on Talent on other Historical and verify the shotitle</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='55' status='pass'>
+	<span class='duration right label'>0h 0m 23s+880ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">See the sho or series detail page from banner -view more</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='56' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">See the sho or series detail page from banner -view more</span>
+			
+				<ul class='steps'>
+					<li test-id='57' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='58' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='59' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on view more from banner to see Singh is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='60' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And verify shoorseriesname with shoorseries detail page</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='61' status='pass'>
+	<span class='duration right label'>0h 0m 42s+650ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">See the sho or series trailer from the studio profile</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='62' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">See the sho or series trailer from the studio profile</span>
+			
+				<ul class='steps'>
+					<li test-id='63' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on play trailer button from banner to see Singh is King</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Verify the page title of the promo Singh is King</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='67' status='pass'>
+	<span class='duration right label'>0h 0m 19s+35ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">See the sho or series trailer from the studio profile-Play Trailer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='68' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@tt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">See the sho or series trailer from the studio profile-Play Trailer</span>
+			
+				<ul class='steps'>
+					<li test-id='69' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Click on play trailer button from banner to see ranam-roudhram</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='72' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then check error toast message as "Currently no Trailer available"</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='73' status='pass'>
+	<span class='duration right label'>0h 1m 5s+276ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">promo Share inside page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='74' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">promo Share inside page</span>
+			
+				<ul class='steps'>
+					<li test-id='75' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on latestpromos page to see all the promos by clicking on Latest Promos</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the promo by facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the promo by twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='80' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the promo by whatsapp</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the promo by copylink</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And come back</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='83' status='pass'>
+	<span class='duration right label'>0h 0m 57s+648ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">audio Share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='84' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">audio Share</span>
+			
+				<ul class='steps'>
+					<li test-id='85' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='86' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='87' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the audio by facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the audio by twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the audio by watsapp</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Share the audio by copylink</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='91' status='fail'>
+	<span class='duration right label'>0h 1m 45s+230ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Studio Share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='92' class='node scenario fail' status='fail'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Studio Share</span>
+			
+				<ul class='steps'>
+					<li test-id='93' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='94' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='95' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then share studio by facebook</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='96' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then share studio by twitter</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='97' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then share studio by whataspp</span>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='play-share']/ul/li[2]"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:56183}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 969322292c53c91be71a0fcafa295907
+*** Element info: {Using=xpath, value=//div[@class='play-share']/ul/li[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.Shoorseriesdetailpage.sharebuttonm(Shoorseriesdetailpage.java:149)
+	at Pageobjects.frontend.Shareandfollow.whatsappswindowhandle(Shareandfollow.java:207)
+	at Steps.frontend.Studioprofilesteps.share_studio_by_whataspp(Studioprofilesteps.java:312)
+	at ✽.Then share studio by whataspp(Features/Frontend/BStudioprofile.feature:163)
+</pre></div>
+					</li>
+					<li test-id='98' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then share studio by copylink</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Studio Share.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='99' status='pass'>
+	<span class='duration right label'>0h 1m 34s+326ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play any promo and see the view and gud count incremented by 1</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='100' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play any promo and see the view and gud count incremented by 1</span>
+			
+				<ul class='steps'>
+					<li test-id='101' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='102' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='103' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The view count and gud count sould be incremented by one after promo play</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='104' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on latestpromos page to see all the promos by clicking on Latest Promos</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='105' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The view and gud count also same in inside the page</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='106' status='pass'>
+	<span class='duration right label'>0h 1m 51s+838ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Play any promo and see the view and gud count decremneted by 1</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='107' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Play any promo and see the view and gud count decremneted by 1</span>
+			
+				<ul class='steps'>
+					<li test-id='108' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='110' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The view count and gud count sould be decremented by one after promo play</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='111' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on latestpromos page to see all the promos by clicking on Latest Promos</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='112' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on latestpromos page to see all the promos by clicking on Latest Promos</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then The view and gud count also same in inside the page</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='114' status='fail'>
+	<span class='duration right label'>0h 0m 59s+49ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Follow us on</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='115' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@sam1</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Follow us on</span>
+			
+				<ul class='steps'>
+					<li test-id='116' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='117' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='118' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Follow the studio by facebook</span>
+							<div class='pre'><pre>java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at Steps.frontend.Studioprofilesteps.follow_the_studio_by_facebook(Studioprofilesteps.java:456)
+	at ✽.Then Follow the studio by facebook(Features/Frontend/BStudioprofile.feature:200)
+</pre></div>
+					</li>
+					<li test-id='119' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Follow rhe studio by twitter</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='120' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Follow the studio by instagram</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='121' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Follow the studio by linkedin</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='122' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Follow the studio by website</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\StudioEndeclipse\GudShoWeb\screenshotsfolder\Follow us on.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='123' status='pass'>
+	<span class='duration right label'>0h 1m 30s+891ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Sho or series share</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='124' class='node scenario pass' status='pass'>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Sho or series share</span>
+			
+				<ul class='steps'>
+					<li test-id='125' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given In search enter sameer and select wanted Sameer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='126' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When It should redirect to the correct Sameer page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='127' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Mousehover on given RRR-2 and share</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@tt</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 12, 2021 07:12:23 PM</td>
+										<td class='linked' test-id='68'>Functionality to Studio profile frontend.See the sho or series trailer from the studio profile-Play Trailer.See the sho or series trailer from the studio profile-Play Trailer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@sam1</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 12, 2021 07:20:00 PM</td>
+										<td class='linked' test-id='115'>Functionality to Studio profile frontend.Follow us on.Follow us on</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 07:15:57 PM</td>
+                                                        <td class='linked' test-id='97'>Functionality to Studio profile frontend.Studio Share.Studio Share.Then share studio by whataspp</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='play-share']/ul/li[2]"}
+  (Session info: chrome=88.0.4324.150)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-EAOH4SP', ip: '192.168.0.17', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_271'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.150, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\user\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:56183}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 969322292c53c91be71a0fcafa295907
+*** Element info: {Using=xpath, value=//div[@class='play-share']/ul/li[2]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at Pageobjects.frontend.Shoorseriesdetailpage.sharebuttonm(Shoorseriesdetailpage.java:149)
+	at Pageobjects.frontend.Shareandfollow.whatsappswindowhandle(Shareandfollow.java:207)
+	at Steps.frontend.Studioprofilesteps.share_studio_by_whataspp(Studioprofilesteps.java:312)
+	at ✽.Then share studio by whataspp(Features/Frontend/BStudioprofile.feature:163)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.IndexOutOfBoundsException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Feb 12, 2021 07:20:37 PM</td>
+                                                        <td class='linked' test-id='118'>Functionality to Studio profile frontend.Follow us on.Follow us on.Then Follow the studio by facebook</td>
+                                                        <td><pre><pre>java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at Steps.frontend.Studioprofilesteps.follow_the_studio_by_facebook(Studioprofilesteps.java:456)
+	at ✽.Then Follow the studio by facebook(Features/Frontend/BStudioprofile.feature:200)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>19</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>89</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 12, 2021 07:04:21 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 12, 2021 07:22:39 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>1,097,537ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>Sameer</td>
+							</tr>
+							<tr>
+								<td>Application Name</td>
+								<td>GudSho </td>
+							</tr>
+							<tr>
+								<td>GudSho</td>
+								<td>QA</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@tt</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@sam1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				Test Execution Cucumber Report
+		</div>
+	</div>
+</div>
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 17,
+				failChild: 2,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 2,
+				
+				passGrandChild: 82,
+				failGrandChild: 2,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 5,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 7,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+        
+        });
+      
+    
+ 		</script>
+	</body>
+	
+</html>

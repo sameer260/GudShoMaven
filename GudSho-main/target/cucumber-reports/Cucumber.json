@@ -1,0 +1,139 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 11852855900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.loginapplication()"
+            }
+          }
+        ],
+        "line": 23,
+        "name": "Add watch list from Sho detail page and check its displaying on home page",
+        "description": "",
+        "id": "end-2-end-scenarios-for-frontend;add-watch-list-from-sho-detail-page-and-check-its-displaying-on-home-page;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 141800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.screenshotm(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 97471500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.teardown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1401702200,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "In search enter Talent and select wanted Talent",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Talent",
+                  "offset": 16
+                },
+                {
+                  "val": "Talent",
+                  "offset": 41
+                }
+              ],
+              "location": "Studioprofilesteps.in_search_enter_and_select_wanted(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2563924400,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "Check the page title and Talentis showing on page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Talent",
+                  "offset": 25
+                }
+              ],
+              "location": "Shoorseriesdetailpagesteps.check_the_page_title_and_is_showing_on_page(String)"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 10335858300,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "Click on watch list button and check the same sho is present on homepage",
+            "match": {
+              "location": "Shocialpagesteps.click_on_watch_list_button_and_check_the_same_sho_is_present_on_homepage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 410821900,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "The My Watch List will display",
+            "match": {
+              "arguments": [
+                {
+                  "val": "My Watch List",
+                  "offset": 4
+                }
+              ],
+              "location": "Shocialpagesteps.the_will_display(String)"
+            },
+            "matchedColumns": [
+              2
+            ],
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 14,
+            "name": "@End2End"
+          }
+        ]
+      }
+    ],
+    "name": "End 2 End Scenarios for Frontend",
+    "description": "",
+    "id": "end-2-end-scenarios-for-frontend",
+    "keyword": "Feature",
+    "uri": "End2EndFeature/FrontendEnd2End.feature"
+  }
+]
